@@ -70,4 +70,9 @@ return function()
   lspconfig.nil_ls.setup({
     capabilities = updated_capabilities,
   })
+
+  -- PHP
+  lspconfig.intelephense.setup({
+    capabilities = updated_capabilities,
+  })
 end

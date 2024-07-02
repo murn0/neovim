@@ -12,6 +12,7 @@ in rec {
     runtimeDeps = with pkgs; [
       lua-language-server
       nil
+      nodePackages.intelephense
     ];
     dependencies = {
       inherit cmp-nvim-lsp;
