@@ -1,0 +1,9 @@
+return function()
+  local diff = require("mini.diff")
+
+  vim.keymap.set("n", "<leader>gh", function()
+    diff.toggle_overlay()
+  end, { desc = "Toggle git hunk preview from MiniDiff" })
+
+  diff.setup()
+end
