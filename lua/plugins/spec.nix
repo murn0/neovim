@@ -16,6 +16,10 @@ in rec {
     ];
     dependencies = {
       inherit cmp-nvim-lsp;
+      neoconf = {
+        package = vimPlugins.neoconf-nvim;
+        config = true;
+      };
     };
   };
 
