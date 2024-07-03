@@ -134,6 +134,7 @@ in rec {
       shellharden
       shfmt
       stylua
+      php83Packages.php-cs-fixer
     ];
   };
 

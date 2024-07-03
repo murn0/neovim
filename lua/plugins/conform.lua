@@ -57,6 +57,7 @@ return function()
       typescript = { { "biome", "prettier" } },
       typescriptreact = { { "biome", "prettier" } },
       yaml = { "prettier" },
+      php = { "php_cs_fixer" },
       ["*"] = { "codespell" },
       ["_"] = { "trim_whitespace" },
     },
