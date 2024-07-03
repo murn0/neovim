@@ -21,8 +21,14 @@
         config,
         inputs',
         pkgs,
+        system,
         ...
       }: {
+        _module.args.pkgs = import inputs.nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
+
         neovim = {
           ## Neovim nightlyを使用する場合はコメントアウトを外す
           # package = inputs'.neovim.packages.default;

@@ -12,9 +12,14 @@ in rec {
     runtimeDeps = with pkgs; [
       lua-language-server
       nil
+      nodePackages.intelephense
     ];
     dependencies = {
       inherit cmp-nvim-lsp;
+      neoconf = {
+        package = vimPlugins.neoconf-nvim;
+        config = true;
+      };
     };
   };
 
@@ -129,6 +134,7 @@ in rec {
       shellharden
       shfmt
       stylua
+      php83Packages.php-cs-fixer
     ];
   };
 
