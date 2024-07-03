@@ -13,9 +13,13 @@ in rec {
       lua-language-server
       nil
       nodePackages.intelephense
+      vscode-langservers-extracted # For JSON
     ];
     dependencies = {
       inherit cmp-nvim-lsp;
+      schemastore = {
+        package = vimPlugins.SchemaStore-nvim;
+      };
       neoconf = {
         package = vimPlugins.neoconf-nvim;
         config = true;
