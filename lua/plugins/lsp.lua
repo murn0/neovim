@@ -42,6 +42,9 @@ return function()
 
   --[[
   -- LSP configurations
+  -- nvim-lspconfigが提供するLSP設定は以下を参照
+  -- - https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+  -- - `:h lspconfig-all`
   --]]
   local lspconfig = require("lspconfig")
   local updated_capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -72,7 +75,18 @@ return function()
   })
 
   -- PHP
+  local get_intelephense_license = function()
+    local f = assert(io.open(os.getenv("XDG_CONFIG_HOME") .. "/intelephense/licence.txt", "rb"))
+    local content = f:read("*a")
+    f:close()
+    return string.gsub(content, "%s+", "")
+  end
+
   lspconfig.intelephense.setup({
     capabilities = updated_capabilities,
+    init_options = {
+      licenceKey = get_intelephense_license(),
+      globalStoragePath = os.getenv("XDG_CONFIG_HOME") .. "/intelephense",
+    },
   })
 end
