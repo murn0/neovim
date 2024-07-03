@@ -49,6 +49,8 @@ return function()
   local lspconfig = require("lspconfig")
   local updated_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+  updated_capabilities.textDocument.completion.completionItem.snippetSupport = true
+
   -- Lua
   lspconfig.lua_ls.setup({
     capabilities = updated_capabilities,
@@ -65,6 +67,19 @@ return function()
           globals = { "vim" },
         },
         telemetry = { enable = false },
+      },
+    },
+  })
+
+  -- JSON
+  lspconfig.jsonls.setup({
+    filetypes = { "json", "jsonc", "json5" },
+    capabilities = updated_capabilities,
+    settings = {
+      json = {
+        schemas = require("schemastore").json.schemas(),
+        validate = { enable = true },
+        format = { enable = true },
       },
     },
   })
