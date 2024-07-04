@@ -7,13 +7,15 @@ in rec {
   ###
   lspconfig = {
     package = vimPlugins.nvim-lspconfig;
-    event = ["VeryLazy"];
+    event = ["VeryLazy" "BufReadPre" "BufReadPost"];
     config = ./lsp.lua;
     runtimeDeps = with pkgs; [
       lua-language-server
       nil
       nodePackages.intelephense
-      vscode-langservers-extracted # For JSON
+      vscode-langservers-extracted # For HTML/CSS/JSON
+      emmet-language-server
+      biome
     ];
     dependencies = {
       inherit cmp-nvim-lsp;
@@ -78,10 +80,6 @@ in rec {
           '';
         };
       };
-
-      nvim-ts-autotag = {
-        package = vimPlugins.nvim-ts-autotag;
-      };
     };
     config = {
       ensure_installed = {}; # parserはプラグインでインストールしない
@@ -100,9 +98,6 @@ in rec {
           node_decremental = "<M-Down>"; # 選択範囲の縮小
         };
       };
-      autotag = {
-        enable = true;
-      };
     };
   };
 
@@ -119,6 +114,12 @@ in rec {
         config = ./mini-surround.lua;
       };
     };
+  };
+
+  nvim-ts-autotag = {
+    package = vimPlugins.nvim-ts-autotag;
+    event = ["BufReadPre" "BufNewFile"];
+    config = true;
   };
 
   ###
@@ -169,7 +170,7 @@ in rec {
     };
     config = {
       select = {
-        enable = false; # vim.ui.select usees `mini.pick`
+        enable = false; # vim.ui.select uses `mini.pick`
       };
     };
   };
