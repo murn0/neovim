@@ -172,7 +172,7 @@ in rec {
     };
     config = {
       select = {
-        enable = false; # vim.ui.select usees `mini.pick`
+        enable = false; # vim.ui.select uses `mini.pick`
       };
     };
   };
