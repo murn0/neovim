@@ -8,12 +8,15 @@ in rec {
   lspconfig = {
     package = vimPlugins.nvim-lspconfig;
     event = ["VeryLazy"];
+    event = ["VeryLazy" "BufReadPre" "BufReadPost"];
     config = ./lsp.lua;
     runtimeDeps = with pkgs; [
       lua-language-server
       nil
       nodePackages.intelephense
-      vscode-langservers-extracted # For JSON
+      vscode-langservers-extracted # For HTML/CSS/JSON
+      emmet-language-server
+      biome
     ];
     dependencies = {
       inherit cmp-nvim-lsp;

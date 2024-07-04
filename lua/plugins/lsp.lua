@@ -104,4 +104,38 @@ return function()
       globalStoragePath = os.getenv("XDG_CONFIG_HOME") .. "/intelephense",
     },
   })
+
+  -- HTML
+  lspconfig.html.setup({
+    capabilities = updated_capabilities,
+  })
+
+  -- CSS
+  lspconfig.cssls.setup({
+    capabilities = updated_capabilities,
+  })
+
+  -- Biome
+  lspconfig.biome.setup({
+    capabilities = updated_capabilities,
+  })
+
+  -- Emmet
+  lspconfig.emmet_language_server.setup({
+    filetypes = {
+      "css",
+      "eruby",
+      "html",
+      "htmldjango",
+      "javascriptreact",
+      "less",
+      "pug",
+      "sass",
+      "scss",
+      "typescriptreact",
+      "php",
+      "twig",
+    },
+    capabilities = updated_capabilities,
+  })
 end
