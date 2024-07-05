@@ -120,6 +120,11 @@ return function()
     capabilities = updated_capabilities,
   })
 
+  -- JavaScript
+  lspconfig.tsserver.setup({
+    capabilities = updated_capabilities,
+  })
+
   -- Emmet
   lspconfig.emmet_language_server.setup({
     filetypes = {
