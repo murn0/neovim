@@ -156,7 +156,8 @@ in rec {
       luajitPackages.luacheck
       nodePackages.jsonlint
       shellcheck
-      statix
+      statix # For nix
+      stylelint
     ];
   };
 

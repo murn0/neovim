@@ -5,6 +5,9 @@ return function()
     bash = { "shellcheck" },
     nix = { "statix" },
     lua = { "luacheck" },
+    -- TODO: BiomeのCSSのLint機能が追加されたら削除できないか確認する
+    css = { "stylelint" },
+    scss = { "stylelint" },
   }
 
   -- Lua
