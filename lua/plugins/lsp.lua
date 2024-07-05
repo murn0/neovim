@@ -84,6 +84,18 @@ return function()
     },
   })
 
+  -- YAML
+  lspconfig.yamlls.setup({
+    capabilities = updated_capabilities,
+    settings = {
+      yaml = {
+        schemas = require("schemastore").yaml.schemas(),
+        validate = { enable = true },
+        format = { enable = true },
+      },
+    },
+  })
+
   -- Nix
   lspconfig.nil_ls.setup({
     capabilities = updated_capabilities,

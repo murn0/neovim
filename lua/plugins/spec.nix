@@ -18,6 +18,7 @@ in rec {
       biome
       nodePackages.typescript-language-server # For JavaScript/TypeScript
       typescript # For JavaScript/TypeScript
+      yaml-language-server
     ];
     dependencies = {
       inherit cmp-nvim-lsp;
