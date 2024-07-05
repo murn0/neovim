@@ -136,7 +136,7 @@ in rec {
       biome
       codespell
       luajitPackages.luacheck
-      nodePackages.prettier # for markdown
+      nodePackages.prettier # For Markdown/CSS/HTML
       shellcheck
       shellharden
       shfmt
@@ -156,7 +156,8 @@ in rec {
       luajitPackages.luacheck
       nodePackages.jsonlint
       shellcheck
-      statix
+      statix # For nix
+      stylelint
     ];
   };
 
