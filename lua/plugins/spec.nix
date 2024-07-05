@@ -136,7 +136,7 @@ in rec {
       biome
       codespell
       luajitPackages.luacheck
-      nodePackages.prettier # for markdown
+      nodePackages.prettier # For Markdown/CSS/HTML
       shellcheck
       shellharden
       shfmt
