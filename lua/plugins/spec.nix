@@ -16,6 +16,8 @@ in rec {
       vscode-langservers-extracted # For HTML/CSS/JSON
       emmet-language-server
       biome
+      nodePackages.typescript-language-server # For JavaScript/TypeScript
+      typescript # For JavaScript/TypeScript
     ];
     dependencies = {
       inherit cmp-nvim-lsp;
