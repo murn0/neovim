@@ -56,7 +56,6 @@ return function()
       markdown = { "prettier", "injected" },
       typescript = { { "biome", "prettier" } },
       typescriptreact = { { "biome", "prettier" } },
-      yaml = { "prettier" },
       php = { "php_cs_fixer" },
       html = { "prettier" },
       css = { "prettier", "stylelint" },
