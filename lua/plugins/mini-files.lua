@@ -1,15 +1,19 @@
 return function()
+  local files = require("mini.files")
+
   --[[
   -- Keymaps
   --]]
-  vim.keymap.set("n", "_", function()
-    require("mini.files").open(vim.api.nvim_buf_get_name(0))
+  vim.keymap.set("n", "<leader>e", function()
+    if not files.close() then
+      files.open(vim.api.nvim_buf_get_name(0))
+    end
   end, { desc = "browse files" })
 
   --[[
   -- Configuration
   --]]
-  require("mini.files").setup({
+  files.setup({
     mappings = {
       -- go_in = "<Right>",
       -- go_in_plus = "<S-Right>",
