@@ -18,7 +18,7 @@ return function()
     callback = function()
       local buf = vim.api.nvim_buf_get_name(0)
       if string.find(buf, "%.github/workflows/.*%.yml") then
-        lint.try_lint("actionlint", { cwd = vim.loop.cwd() })
+        lint.try_lint("actionlint", { cwd = vim.fs.root(0, ".github") })
       else
         lint.try_lint()
       end
