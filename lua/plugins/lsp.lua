@@ -40,6 +40,31 @@ return function()
     end,
   })
 
+  vim.diagnostic.config({
+    float = {
+      border = "single",
+    },
+    severity_sort = true,
+    signs = {
+      priority = 9999,
+      -- Only for warnings and errors
+      severity = { min = "HINT", max = "ERROR" },
+    },
+    underline = true,
+    update_in_insert = false,
+    virtual_text = {
+      format = function(diagnostic)
+        return string.format("%s  %s", diagnostic.severity, diagnostic.message)
+      end,
+      prefix = "",
+      spacing = 2,
+      severity = { min = "ERROR", max = "ERROR" },
+      suffix = function(diagnostic)
+        return diagnostic.source and " [" .. diagnostic.source .. "]" or ""
+      end,
+    },
+  })
+
   --[[
   -- LSP configurations
   -- nvim-lspconfigが提供するLSP設定は以下を参照
