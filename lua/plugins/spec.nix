@@ -159,6 +159,7 @@ in rec {
       shellcheck
       statix # For nix
       stylelint
+      actionlint
     ];
   };
 
