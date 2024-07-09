@@ -40,6 +40,8 @@ return function()
     end,
   })
 
+  -- Diagnostic
+  -- `:h diagnostic-severity`を参照
   vim.diagnostic.config({
     float = {
       border = "single",
@@ -47,7 +49,7 @@ return function()
     severity_sort = true,
     signs = {
       priority = 9999,
-      -- Only for warnings and errors
+      -- signはHINT、INFO、WARN、ERRORを表示する
       severity = { min = "HINT", max = "ERROR" },
     },
     underline = true,
@@ -58,6 +60,7 @@ return function()
       end,
       prefix = "",
       spacing = 2,
+      -- virtual_textはERRORのみを表示
       severity = { min = "ERROR", max = "ERROR" },
       suffix = function(diagnostic)
         return diagnostic.source and " [" .. diagnostic.source .. "]" or ""
