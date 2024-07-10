@@ -316,6 +316,15 @@ in rec {
     config = ./mini-visits.lua;
   };
 
+  mini-sessions = {
+    package = vimPlugins.mini-nvim;
+    event = ["VeryLazy"];
+    dependencies = {
+      inherit nui;
+    };
+    config = ./mini-sessions.lua;
+  };
+
   ###
   # TOC: Copilot
   ###
