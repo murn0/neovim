@@ -44,8 +44,8 @@ return function()
   end, { desc = "find diagnostic" })
 
   keymap.set("n", "<M-g>", function()
-    extra.pickers.git_files()
-  end, { desc = "find git ls-files" })
+    extra.pickers.git_hunks()
+  end, { desc = "find unstage git hunks" })
 
   keymap.set("n", "<M-o>", function()
     extra.pickers.lsp({ scope = "document_symbol" })
