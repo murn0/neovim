@@ -54,6 +54,7 @@ return function()
       lua = { "stylua", "luacheck" },
       nix = { "alejandra" },
       markdown = { "prettier", "injected" },
+      yaml = { "prettier" },
       typescript = { { "biome", "prettier" } },
       typescriptreact = { { "biome", "prettier" } },
       php = { "php_cs_fixer" },

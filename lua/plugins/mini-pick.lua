@@ -44,8 +44,8 @@ return function()
   end, { desc = "find diagnostic" })
 
   keymap.set("n", "<M-g>", function()
-    extra.pickers.git_files()
-  end, { desc = "find git ls-files" })
+    extra.pickers.git_hunks()
+  end, { desc = "find unstage git hunks" })
 
   keymap.set("n", "<M-o>", function()
     extra.pickers.lsp({ scope = "document_symbol" })
@@ -96,6 +96,41 @@ return function()
     local buffer_mappings = { copy = { char = "+", func = copy_cmd } }
     extra.pickers.history({ scope = "/" }, { mappings = buffer_mappings })
   end, { desc = "find search history" })
+
+  keymap.set("n", "_", function()
+    local items = {
+      { value = "SaveNewSession", text = "Save New Session" },
+      { value = "DeleteSession", text = "Delete Session" },
+      { value = "VisitsAddLabel", text = "Add label to a file" },
+      { value = "VisitsAddBranchLabel", text = "Add label a file with the branch name" },
+      { value = "ToggleDiffOverlay", text = "Toggle diff overlay" },
+    }
+    -- item.valueを使用して、グローバルなコマンドを取得
+    local commands = {}
+    for _, item in ipairs(items) do
+      commands[item.value] = vim.api.nvim_get_commands({})[item.value] or {}
+    end
+
+    local choose = function(item)
+      local value = item.value
+
+      local data = commands[value] or {}
+      -- `data.nargs == '0'`は、コマンドが引数を取らない場合にチェックする
+      -- 引数が不要な場合は \r（Enterキー）を追加、
+      -- 引数が必要な場合はスペースを追加して、ユーザーが引数を入力できるようにする
+      local keys = string.format(":%s%s", value, data.nargs == "0" and "\r" or " ")
+
+      vim.schedule(function()
+        vim.fn.feedkeys(keys)
+      end)
+    end
+
+    pick.start({ source = { items = items, name = "Run commands", choose = choose } })
+  end, { desc = "Run command" })
+
+  keymap.set("n", "<m-_>", function()
+    extra.pickers.commands()
+  end, { desc = "find commands" })
 
   --[[
   -- Configurations

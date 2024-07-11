@@ -18,3 +18,7 @@ keymap.set("n", "<C-k>", "<C-Y>")
 
 -- ヤンクした文字列をクリップボードに保存する
 keymap.set("n", "+", "<Cmd>let @+ = @@<CR>")
+
+-- バッファ移動
+keymap.set("n", "<Tab>", "<Cmd>bnext<CR>")
+keymap.set("n", "<S-Tab>", "<Cmd>bprevious<CR>")
