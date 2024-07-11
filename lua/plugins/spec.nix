@@ -325,12 +325,6 @@ in rec {
     config = ./mini-sessions.lua;
   };
 
-  mini-starter = {
-    package = vimPlugins.mini-nvim;
-    event = ["VeryLazy"];
-    config = ./mini-starter.lua;
-  };
-
   ###
   # TOC: Copilot
   ###
