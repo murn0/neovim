@@ -208,13 +208,13 @@ in rec {
     config = true;
   };
 
-  bufferline = {
-    package = vimPlugins.bufferline-nvim;
+  mini-tabline = {
+    package = vimPlugins.mini-nvim;
     event = ["VeryLazy"];
     dependencies = {
       inherit devicons;
     };
-    config = ./bufferline.lua;
+    config = ./mini-tabline.lua;
   };
 
   ###
