@@ -36,10 +36,18 @@ return function()
         delete_label = {
           char = "<C-q>",
           func = function()
-            local choose_label = pick.get_picker_matches().current
-            visits.remove_label(choose_label)
+            local default_opts = pick.get_picker_opts()
+            local label = string.match(default_opts.source.name, '"([^"]+)"')
+            local path = pick.get_picker_matches().current
+            -- label名の選択画面ではlabelがnilなのでpickerを終了する
+            if label == nil then
+              return true
+            end
+
+            -- fileの選択画面での処理
+            visits.remove_label(label, path)
             pick.stop()
-            print("Delete visit label: " .. choose_label)
+            print("Delete visit path: " .. path .. "(" .. label .. ")")
           end,
         },
       },
