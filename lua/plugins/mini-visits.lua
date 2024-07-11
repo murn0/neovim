@@ -51,28 +51,44 @@ return function()
 
   -- set label
   keymap.set("n", "<leader>vl", function()
-    visits.add_label()
-  end, { desc = "add label for MiniVisits" })
-  keymap.set("n", "<leader>vL", function()
     visits.remove_label()
-  end, { desc = "remove label for MiniVisits" })
+  end, { desc = "Remove a label from a file" })
 
-  keymap.set("n", "<leader>vb", function()
-    local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD")
-    if vim.v.shell_error ~= 0 then
-      return nil
-    end
-    branch = vim.trim(branch)
-    visits.add_label(branch)
-  end, { desc = "add branch label for MiniVisits" })
-  keymap.set("n", "<leader>vB", function()
+  local function removeLabelWithBrachName()
     local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD")
     if vim.v.shell_error ~= 0 then
       return nil
     end
     branch = vim.trim(branch)
     visits.remove_label(branch)
-  end, { desc = "remove branch label for MiniVisits" })
+  end
+
+  keymap.set("n", "<leader>vb", function()
+    removeLabelWithBrachName()
+  end, { desc = "Add label a file with the branch name for MiniVisits" })
+
+  local createCommand = vim.api.nvim_create_user_command
+
+  createCommand("VisitsAddLabel", function()
+    visits.add_label()
+  end, { desc = "Add label to a file" })
+
+  createCommand("VisitsRemoveLabel", function()
+    visits.remove_label()
+  end, { desc = "Remove a label from a file" })
+
+  createCommand("VisitsAddBranchLabel", function()
+    local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD")
+    if vim.v.shell_error ~= 0 then
+      return nil
+    end
+    branch = vim.trim(branch)
+    visits.add_label(branch)
+  end, { desc = "Add label a file with the branch name" })
+
+  createCommand("VisitsRemoveBranchLabel", function()
+    removeLabelWithBrachName()
+  end, { desc = "Remove the branch name label from a file" })
 
   --[[
   -- Configurations

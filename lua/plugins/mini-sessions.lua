@@ -1,8 +1,10 @@
 return function()
-  local pick = require("mini.pick")
-  local extra = require("mini.extra")
+  local sessions = require("mini.sessions")
 
-  vim.api.nvim_create_user_command("SaveNewSession", function(opts)
+  -- [[
+  -- User command
+  -- ]]
+  vim.api.nvim_create_user_command("SaveNewSession", function()
     local Input = require("nui.input")
     local event = require("nui.utils.autocmd").event
     local input = Input({
@@ -24,10 +26,10 @@ return function()
       prompt = "> ",
       default_value = "",
       on_close = function()
-        print("Cancel add new session")
+        print("Cancel create new session")
       end,
       on_submit = function(value)
-        require("mini.sessions").write(value)
+        sessions.write(value)
       end,
     })
     -- mount/open the component
@@ -42,13 +44,18 @@ return function()
     input:map("n", "<Esc>", function()
       input:unmount()
     end, { noremap = true })
-    -- require("mini.sessions").write(vim.ui.input("Session name: ", ""))
   end, { desc = "Save New Session" })
+
+  vim.api.nvim_create_user_command("DeleteSession", function()
+    sessions.select("delete")
+  end, { desc = "Delete select session" })
 
   --[[
   -- Keymaps
   --]]
   local keymap = vim.keymap
 
-  require("mini.sessions").setup({})
+  keymap.set("n", "<M-s>", function()
+    sessions.select()
+  end, { desc = "find session" })
 end
