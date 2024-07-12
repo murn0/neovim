@@ -40,6 +40,12 @@
             git
           ];
           lazy = {
+            package = pkgs.fetchFromGitHub {
+              owner = "folke";
+              repo = "lazy.nvim";
+              rev = "refs/tags/v10.24.2";
+              sha256 = "sha256-gw/X5QffH2IoWLsWbpHMT1sup3LrCa5bT1t+cGDf4RQ=";
+            };
             plugins = import ./lua/plugins/spec.nix {
               inherit pkgs;
             };
