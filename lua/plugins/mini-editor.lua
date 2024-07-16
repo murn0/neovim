@@ -4,9 +4,10 @@ return function()
     "mini.bracketed",
     "mini.bufremove",
     "mini.cursorword",
+    "mini.jump",
+    "mini.notify",
     "mini.pairs",
     "mini.splitjoin",
-    "mini.jump",
   }
 
   -- Setup
