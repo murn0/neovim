@@ -47,6 +47,10 @@ return function()
     extra.pickers.git_hunks()
   end, { desc = "find unstage git hunks" })
 
+  keymap.set("n", "<M-c>", function()
+    extra.pickers.git_files()
+  end, { desc = "find git ls-files" })
+
   keymap.set("n", "<M-o>", function()
     extra.pickers.lsp({ scope = "document_symbol" })
   end, { desc = "find lsp symbol for current file" })
