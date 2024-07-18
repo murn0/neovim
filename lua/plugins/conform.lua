@@ -58,6 +58,7 @@ return function()
       typescript = { { "biome", "prettier" } },
       typescriptreact = { { "biome", "prettier" } },
       php = { "php_cs_fixer" },
+      twig = { "djlint" },
       html = { "prettier" },
       css = { "prettier", "stylelint" },
       scss = { "prettier", "stylelint" },

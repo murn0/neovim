@@ -143,6 +143,7 @@ in rec {
       shfmt
       stylua
       php83Packages.php-cs-fixer
+      djlint # For Twig
     ];
   };
 
