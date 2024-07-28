@@ -326,6 +326,12 @@ in rec {
     config = ./mini-sessions.lua;
   };
 
+  toggleterm = {
+    package = vimPlugins.toggleterm-nvim;
+    event = ["VeryLazy"];
+    config = ./toggleterm.lua;
+  };
+
   ###
   # TOC: Copilot
   ###
