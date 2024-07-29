@@ -319,6 +319,7 @@ in rec {
   toggleterm = {
     package = vimPlugins.toggleterm-nvim;
     event = ["VeryLazy"];
+    runtimeDeps = with pkgs; [lazygit];
     config = ./toggleterm.lua;
   };
 
