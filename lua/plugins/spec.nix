@@ -234,16 +234,6 @@ in rec {
     config = ./mini-diff.lua;
   };
 
-  lazygit = {
-    package = vimPlugins.lazygit-nvim;
-    event = ["VeryLazy"];
-    dependencies = {
-      inherit plenary;
-    };
-    runtimeDeps = [pkgs.lazygit];
-    config = ./lazygit.lua;
-  };
-
   ###
   # TOC: Editor
   ###
