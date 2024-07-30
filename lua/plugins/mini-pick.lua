@@ -48,8 +48,8 @@ return function()
   end, { desc = "find unstage git hunks" })
 
   keymap.set("n", "<M-c>", function()
-    extra.pickers.git_files()
-  end, { desc = "find git ls-files" })
+    extra.pickers.git_commits()
+  end, { desc = "find git commits" })
 
   keymap.set("n", "<M-o>", function()
     extra.pickers.lsp({ scope = "document_symbol" })
