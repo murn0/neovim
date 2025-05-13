@@ -2,12 +2,13 @@ return function()
   local lint = require("lint")
 
   lint.linters_by_ft = {
+    astro = { "eslint", "stylelint" },
     bash = { "shellcheck" },
-    nix = { "statix" },
-    lua = { "luacheck" },
-    json = { "jsonlint" },
     -- TODO: BiomeのCSSのLint機能が追加されたら削除できないか確認する
     css = { "stylelint" },
+    json = { "jsonlint" },
+    lua = { "luacheck" },
+    nix = { "statix" },
     scss = { "stylelint" },
   }
 

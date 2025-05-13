@@ -162,6 +162,7 @@ in rec {
       statix # For nix
       stylelint
       actionlint
+      eslint # For Astro
     ];
   };
 
