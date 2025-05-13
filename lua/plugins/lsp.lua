@@ -161,7 +161,7 @@ return function()
   })
 
   -- JavaScript
-  lspconfig.tsserver.setup({
+  lspconfig.ts_ls.setup({
     capabilities = updated_capabilities,
   })
 
