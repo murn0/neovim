@@ -165,6 +165,11 @@ return function()
     capabilities = updated_capabilities,
   })
 
+  -- Astro
+  lspconfig.astro.setup({
+    capabilities = updated_capabilities,
+  })
+
   -- Emmet
   lspconfig.emmet_language_server.setup({
     filetypes = {
