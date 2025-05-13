@@ -168,18 +168,19 @@ return function()
   -- Emmet
   lspconfig.emmet_language_server.setup({
     filetypes = {
+      "astro",
       "css",
       "eruby",
       "html",
       "htmldjango",
       "javascriptreact",
       "less",
+      "php",
       "pug",
       "sass",
       "scss",
-      "typescriptreact",
-      "php",
       "twig",
+      "typescriptreact",
     },
     capabilities = updated_capabilities,
   })
