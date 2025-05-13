@@ -53,6 +53,7 @@ return function()
       javascript = { "biome", "prettier", stop_after_first = true },
       javascriptreact = { "biome", "prettier", stop_after_first = true },
       json = { "biome", "prettier", stop_after_first = true },
+      jsonc = { "biome", "prettier", stop_after_first = true },
       lua = { "stylua", "luacheck" },
       markdown = { "prettier", "injected" },
       nix = { "alejandra" },
