@@ -46,7 +46,7 @@ return function()
   --]]
   require("conform").setup({
     formatters_by_ft = {
-      astro = { "prettier", "biome" },
+      astro = { "prettier", "biome", "stylelint" },
       bash = { "shfmt", "shellcheck", "shellharden" },
       css = { "prettier", "stylelint" },
       html = { "prettier" },
